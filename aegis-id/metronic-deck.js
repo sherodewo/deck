@@ -1,4 +1,4 @@
-/* Presentation enhancements: all chart values derive from the existing simulator. */
+﻿/* Presentation enhancements: all chart values derive from the existing simulator. */
 (() => {
   'use strict';
   const icons = {'toc-open':'bi-grid', 'notes-open':'bi-journal-text', fullscreen:'bi-arrows-fullscreen', print:'bi-printer'};
@@ -18,7 +18,7 @@
   let chart;
   function chartValues() {
     const input = Object.fromEntries(fields.map(key => [key, Number(document.getElementById('finance-' + key).value)]));
-    const result = window.AvalonDemoModel.economics(input);
+    const result = window.AegisDemoModel.economics(input);
     const maxClients = Math.max(24, input.clients + 8, result.breakEven !== null ? Math.min(120, result.breakEven + 8) : 24);
     const points = Array.from({length:13}, (_, i) => Math.round(i * maxClients / 12));
     return [{name:'Pendapatan',data:points.map(x=>({x,y:x*input.price}))},{name:'Biaya operasi',data:points.map(x=>({x,y:input.fixed+x*input.variable}))}];
@@ -79,3 +79,4 @@
   new MutationObserver(updateGuide).observe(document.getElementById('case-detail'),{childList:true});updateGuide();
 
 })();
+
