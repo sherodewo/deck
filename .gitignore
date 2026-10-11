@@ -4,3 +4,4 @@ aegis-id/*.bak
 aegis-id/preview-*.png
 aegis-id/preview-*.pdf
 aegis-id/verify-*.cjs
+persona-guard/
