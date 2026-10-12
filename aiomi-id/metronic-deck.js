@@ -18,7 +18,7 @@
   let chart;
   function chartValues() {
     const input = Object.fromEntries(fields.map(key => [key, Number(document.getElementById('finance-' + key).value)]));
-    const result = window.AegisDemoModel.economics(input);
+    const result = window.AiomiDemoModel.economics(input);
     const maxClients = Math.max(24, input.clients + 8, result.breakEven !== null ? Math.min(120, result.breakEven + 8) : 24);
     const points = Array.from({length:13}, (_, i) => Math.round(i * maxClients / 12));
     return [{name:'Pendapatan',data:points.map(x=>({x,y:x*input.price}))},{name:'Biaya operasi',data:points.map(x=>({x,y:input.fixed+x*input.variable}))}];
@@ -65,7 +65,7 @@
     });
   });
   const intro=document.createElement('div');intro.className='command-intro';
-  intro.innerHTML='<div class="command-intro-copy"><span class="small-label">ASISTEN PERLINDUNGAN IDENTITAS</span><h3>Dari temuan ke tindakan, dalam satu tempat.</h3><p>AI membantu menyaring indikasi penyalahgunaan identitas. Anda melihat bukti dan mengendalikan setiap keputusan.</p></div><div class="command-journey"><div><i class="bi bi-radar" aria-hidden="true"></i><strong>01 &middot; Temukan</strong><span>Pilih temuan di daftar</span></div><div><i class="bi bi-search" aria-hidden="true"></i><strong>02 &middot; Periksa</strong><span>Baca konteks dan bukti</span></div><div><i class="bi bi-shield-check" aria-hidden="true"></i><strong>03 &middot; Putuskan</strong><span>Setujui respons atau arsipkan</span></div></div>';
+  intro.innerHTML='<div class="command-intro-copy"><span class="small-label">ASISTEN REPUTASI DIGITAL</span><h3>Dari temuan ke tindakan, dalam satu tempat.</h3><p>AI membantu menyaring potensi ancaman reputasi dan penyalahgunaan identitas. Anda melihat bukti dan mengendalikan setiap keputusan.</p></div><div class="command-journey"><div><i class="bi bi-radar" aria-hidden="true"></i><strong>01 &middot; Temukan</strong><span>Pilih temuan di daftar</span></div><div><i class="bi bi-search" aria-hidden="true"></i><strong>02 &middot; Periksa</strong><span>Baca konteks dan bukti</span></div><div><i class="bi bi-shield-check" aria-hidden="true"></i><strong>03 &middot; Putuskan</strong><span>Setujui respons atau arsipkan</span></div></div>';
   document.querySelector('#slide-7 .demo-toolbar').before(intro);
   const panel=document.querySelector('.case-panel');
   const label=document.createElement('div');label.className='case-panel-heading';label.innerHTML='<strong>Temuan untuk Anda</strong><span>Pilih satu untuk mulai meninjau</span>';panel.prepend(label);
